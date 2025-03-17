@@ -11,8 +11,11 @@ pipeline {
       }
     }
 
-    stage('run') {
+    stage('build steps') {
       steps {
+        sh 'mvn clean install'
+        sh 'mvn clean'
+        sh 'mvn test'
         sh 'mvn verify'
       }
     }
